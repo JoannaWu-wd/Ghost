@@ -1,96 +1,75 @@
-<p align="center">
-  <a href="https://ghost.org">
-    <img src="https://user-images.githubusercontent.com/120485/43974508-b64b2fe8-9cd2-11e8-8e58-707254b8817c.png" width="140px" alt="Ghost" />
-  </a>
-</p>
-<p align="center">
-    <a href="https://ghost.org">Ghost.org</a> |
-    <a href="https://ghost.org/features">Features</a> |
-    <a href="https://ghost.org/customers">Showcase</a> |
-    <a href="https://forum.ghost.org">Forum</a> |
-    <a href="https://ghost.org/docs/">Docs</a> |
-    <a href="https://github.com/TryGhost/Ghost/blob/master/.github/CONTRIBUTING.md">Contributing</a> |
-    <a href="https://twitter.com/ghost">Twitter</a>
-    <br /><br />
-    <a href="https://ghost.org">
-        <img src="https://img.shields.io/badge/downloads-2M-brightgreen.svg" alt="Downloads" />
-    </a>
-    <a href="https://github.com/TryGhost/Ghost/releases/">
-        <img src="https://img.shields.io/github/release/TryGhost/Ghost.svg" alt="Latest release" />
-    </a>
-    <a href="https://github.com/TryGhost/Ghost/actions">
-        <img src="https://github.com/TryGhost/Ghost/workflows/Test%20Suite/badge.svg?branch=master" alt="Build status" />
-    </a>
-    <a href="https://github.com/TryGhost/Ghost/contributors/">
-        <img src="https://img.shields.io/github/contributors/TryGhost/Ghost.svg" alt="Contributors" />
-    </a>
-</p>
-<p align="center">Love open source? We're hiring <a href="https://careers.ghost.org/product-engineer-node-js/">Node.js Engineers</a> to work on Ghost full-time</p>
+# Try Out Development Containers: Java
 
-&nbsp;
+A **development container** is a running [Docker](https://www.docker.com) container with a well-defined tool/runtime stack and its prerequisites. You can try out development containers with **[GitHub Codespaces](https://github.com/features/codespaces)** or **[Visual Studio Code Remote - Containers](https://aka.ms/vscode-remote/containers)**.
 
-<a href="https://ghost.org"><img src="https://user-images.githubusercontent.com/120485/66918181-f88fdc80-f048-11e9-8135-d9c0e7b35ebc.png" alt="Fiercely independent, professional publishing. Ghost is the most popular open source, headless Node.js CMS which already works with all the tools you know and love." /></a>
+This is a sample project that lets you try out either option in a few easy steps. We have a variety of other [vscode-remote-try-*](https://github.com/search?q=org%3Amicrosoft+vscode-remote-try-&type=Repositories) sample projects, too.
 
-<a href="https://ghost.org/pricing"><img src="https://user-images.githubusercontent.com/120485/43995179-556d7620-9da1-11e8-8410-4b2ba48ea8d0.png" alt="Ghost(Pro)" width="165px" /></a>
+> **Note:** If you already have a Codespace or dev container, you can jump to the [Things to try](#things-to-try) section.
 
-The easiest way to get a production instance deployed is with our official **[Ghost(Pro)](https://ghost.org/pricing/)** managed service. It takes about 2 minutes to launch a new site with worldwide CDN, backups, security and maintenance all done for you. 
+## Setting up the development container
 
-For most people this ends up being the best value option cause of [how much time it saves](https://ghost.org/docs/concepts/hosting/) — and 100% of revenue goes to the Ghost Foundation; funding the maintenance and further development of the project itself. So you’ll be supporting open source software *and* getting a great service!
+### GitHub Codespaces
+Follow these steps to open this sample in a Codespace:
+1. Click the Code drop-down menu and select the **Open with Codespaces** option.
+1. Select **+ New codespace** at the bottom on the pane.
 
-If you prefer to run on your own infrastructure, we also offer official 1-off installs and managed support and maintenance plans via **[Ghost(Valet)](https://valet.ghost.org)** - which can save a substantial amount of developer time and resources.
+For more info, check out the [GitHub documentation](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace#creating-a-codespace).
 
-&nbsp;
+### VS Code Remote - Containers
+Follow these steps to open this sample in a container using the VS Code Remote - Containers extension:
 
-# Quickstart Install
+1. If this is your first time using a development container, please ensure your system meets the pre-reqs (i.e. have Docker installed) in the [getting started steps](https://aka.ms/vscode-remote/containers/getting-started).
 
-If you want to run your own instance of Ghost, in most cases the best way is to use our **CLI tool**
+2. To use this repository, you can either open the repository in an isolated Docker volume:
 
-```
-npm install ghost-cli -g
-```
+    - Press <kbd>F1</kbd> and select the **Remote-Containers: Try a Sample...** command.
+    - Choose the "Java" sample, wait for the container to start, and try things out!
+        > **Note:** Under the hood, this will use the **Remote-Containers: Clone Repository in Container Volume...** command to clone the source code in a Docker volume instead of the local filesystem. [Volumes](https://docs.docker.com/storage/volumes/) are the preferred mechanism for persisting container data.
 
-&nbsp;
+   Or open a locally cloned copy of the code:
 
-Then, if installing locally add the `local` flag to get up and running in under a minute - [Local install docs](https://ghost.org/docs/install/local/)
+   - Clone this repository to your local filesystem.
+   - Press <kbd>F1</kbd> and select the **Remote-Containers: Open Folder in Container...** command.
+   - Select the cloned copy of this folder, wait for the container to start, and try things out!
 
-```
-ghost install local
-```
+## Things to try
 
-&nbsp;
+Once you have this sample opened, you'll be able to work with it like you would locally.
 
-or on a server run the full install, including automatic SSL setup using LetsEncrypt - [Production install docs](https://ghost.org/docs/install/ubuntu/)
+> **Note:** This container runs as a non-root user with sudo access by default. Comment out `"remoteUser": "vscode"` in `.devcontainer/devcontainer.json` if you'd prefer to run as root.
 
-```
-ghost install
-```
+Some things to try:
 
-&nbsp;
+1. **Edit:**
+   - Open `src/main/java/com/mycompany/app/App.java`.
+   - Try adding some code and check out the language features.
+   - Notice that the Java extension pack is already installed in the container since the `.devcontainer/devcontainer.json` lists `"vscjava.vscode-java-pack"` as an extension to install automatically when the container is created.
+2. **Terminal:** Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\`</kbd> and type `uname` and other Linux commands from the terminal window.
+3. **Build, Run, and Debug:**
+   - Open `src/main/java/com/mycompany/app/App.java`.
+   - Add a breakpoint.
+   - Press <kbd>F5</kbd> to launch the app in the container.
+   - Once the breakpoint is hit, try hovering over variables, examining locals, and more.
+4. **Run a Test:**
+   - Open `src/test/java/com/mycompany/app/AppTest.java`.
+   - Put a breakpoint in a test.
+   - Click the `Debug Test` in the Code Lens above the function and watch it hit the breakpoint.
+  
+## Contributing
 
-Check out our [official documentation](https://ghost.org/docs/) for more information about our [recommended hosting stack](https://ghost.org/docs/concepts/hosting/) & properly [upgrading Ghost](https://ghost.org/faq/upgrades/), plus everything you need to develop your own Ghost [themes](https://ghost.org/docs/api/handlebars-themes/) or work with [our API](https://ghost.org/docs/api/).
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
-### Contributors & Advanced Developers
+When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
 
-For anyone wishing to contribute to Ghost or to hack/customise core files we recommend following our full development setup guides: [Contributor Guide](https://ghost.org/docs/concepts/contributing/) | [Developer Setup](https://ghost.org/docs/install/source/) | [Admin Client Dev Guide](https://ghost.org/docs/install/source/#ghost-admin)
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-&nbsp;
+## License
 
-# Ghost Sponsors
-
-We'd like to extend big thanks to our sponsors and partners who make Ghost possible. If you're interested in sponsoring Ghost and supporting the project, please check out our profile on [GitHub Sponsors](https://github.com/sponsors/TryGhost) :heart:
-
-**[DigitalOcean](https://digitalocean.com)** | **[Cloudflare](https://cloudflare.com)**
-
-&nbsp;
-
-# Getting Help
-
-You can find answers to a huge variety of questions, along with a large community of helpful developers over on the [Ghost forum](https://forum.ghost.org/) - replies are generally very quick. **Ghost(Pro)** customers also have access to 24/7 email support.
-
-To stay up to date with all the latest news and product updates, make sure you [subscribe to our blog](https://ghost.org/blog/) — or you can always follow us [on Twitter](https://twitter.com/Ghost), if you prefer your updates bite-sized and facetious. :saxophone::turtle:
-
-&nbsp;
-
-# Copyright & License
-
-Copyright (c) 2013-2020 Ghost Foundation - Released under the [MIT license](LICENSE). Ghost and the Ghost Logo are trademarks of Ghost Foundation Ltd. Please see our [trademark policy](https://ghost.org/trademark/) for info on acceptable usage.
+Copyright © Microsoft Corporation All rights reserved.<br />
+Licensed under the MIT License. See LICENSE in the project root for license information.
